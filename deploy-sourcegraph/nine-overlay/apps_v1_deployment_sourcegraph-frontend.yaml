@@ -88,15 +88,6 @@ spec:
             scheme: HTTP
           periodSeconds: 5
           timeoutSeconds: 5
-        resources:
-          limits:
-            cpu: "2"
-            ephemeral-storage: 8Gi
-            memory: 4G
-          requests:
-            cpu: "2"
-            ephemeral-storage: 4Gi
-            memory: 2G
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /mnt/cache
@@ -121,13 +112,6 @@ spec:
           protocol: UDP
         - containerPort: 6832
           protocol: UDP
-        resources:
-          limits:
-            cpu: "1"
-            memory: 500M
-          requests:
-            cpu: 100m
-            memory: 100M
       initContainers:
       - args:
         - up
@@ -156,13 +140,6 @@ spec:
           value: sg
         image: index.docker.io/sourcegraph/migrator:insiders@sha256:41dd9090988e3282ddb204af8e2afd5d8e7f1a937fabe0c2dfdc5466f98518f5
         name: migrator
-        resources:
-          limits:
-            cpu: 500m
-            memory: 100M
-          requests:
-            cpu: 100m
-            memory: 50M
       securityContext:
         runAsUser: 0
       serviceAccountName: sourcegraph-frontend

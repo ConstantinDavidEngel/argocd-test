@@ -36,13 +36,6 @@ spec:
             port: 9090
           periodSeconds: 5
           timeoutSeconds: 3
-        resources:
-          limits:
-            cpu: "2"
-            memory: 6G
-          requests:
-            cpu: 500m
-            memory: 6G
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /prometheus

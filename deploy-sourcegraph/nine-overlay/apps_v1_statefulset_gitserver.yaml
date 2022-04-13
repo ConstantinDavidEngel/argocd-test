@@ -38,13 +38,6 @@ spec:
         - containerPort: 3178
           name: rpc
           protocol: TCP
-        resources:
-          limits:
-            cpu: "4"
-            memory: 8G
-          requests:
-            cpu: "4"
-            memory: 8G
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /data/repos
@@ -69,13 +62,6 @@ spec:
           protocol: UDP
         - containerPort: 6832
           protocol: UDP
-        resources:
-          limits:
-            cpu: "1"
-            memory: 500M
-          requests:
-            cpu: 100m
-            memory: 100M
       securityContext:
         runAsUser: 0
       volumes:
@@ -88,7 +74,4 @@ spec:
     spec:
       accessModes:
       - ReadWriteOnce
-      resources:
-        requests:
-          storage: 200Gi
       storageClassName: sourcegraph

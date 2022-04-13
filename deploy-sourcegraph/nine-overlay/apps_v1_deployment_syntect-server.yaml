@@ -43,13 +43,6 @@ spec:
         readinessProbe:
           tcpSocket:
             port: http
-        resources:
-          limits:
-            cpu: "4"
-            memory: 6G
-          requests:
-            cpu: 250m
-            memory: 2G
         terminationMessagePolicy: FallbackToLogsOnError
       securityContext:
         runAsUser: 0

@@ -28,13 +28,6 @@ spec:
         ports:
         - containerPort: 3370
           name: http
-        resources:
-          limits:
-            cpu: "1"
-            memory: 512Mi
-          requests:
-            cpu: 100m
-            memory: 512Mi
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /var/lib/grafana
@@ -57,7 +50,4 @@ spec:
     spec:
       accessModes:
       - ReadWriteOnce
-      resources:
-        requests:
-          storage: 2Gi
       storageClassName: sourcegraph

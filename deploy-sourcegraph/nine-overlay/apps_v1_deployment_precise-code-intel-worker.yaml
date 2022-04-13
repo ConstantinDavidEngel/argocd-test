@@ -55,13 +55,6 @@ spec:
             scheme: HTTP
           periodSeconds: 5
           timeoutSeconds: 5
-        resources:
-          limits:
-            cpu: "2"
-            memory: 4G
-          requests:
-            cpu: 500m
-            memory: 2G
         terminationMessagePolicy: FallbackToLogsOnError
       securityContext:
         runAsUser: 0

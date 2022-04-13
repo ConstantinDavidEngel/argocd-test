@@ -62,15 +62,6 @@ spec:
             scheme: HTTP
           periodSeconds: 5
           timeoutSeconds: 5
-        resources:
-          limits:
-            cpu: "2"
-            ephemeral-storage: 12G
-            memory: 2G
-          requests:
-            cpu: 500m
-            ephemeral-storage: 10G
-            memory: 500M
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /mnt/cache
@@ -95,13 +86,6 @@ spec:
           protocol: UDP
         - containerPort: 6832
           protocol: UDP
-        resources:
-          limits:
-            cpu: "1"
-            memory: 500M
-          requests:
-            cpu: 100m
-            memory: 100M
       securityContext:
         runAsUser: 0
       volumes:

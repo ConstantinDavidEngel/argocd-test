@@ -41,13 +41,6 @@ spec:
         ports:
         - containerPort: 5432
           name: codeinsights-db
-        resources:
-          limits:
-            cpu: "4"
-            memory: 2Gi
-          requests:
-            cpu: "4"
-            memory: 2Gi
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
         - mountPath: /var/lib/postgresql/data/
