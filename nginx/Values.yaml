@@ -11,7 +11,9 @@ ingress-nginx:
       default-ssl-certificate: "nginx/default-ssl-certificate"
     service:
       enabled: true
-        type: LoadBalancer
+      type: LoadBalancer
+      ports:
+	http: 110
     resources:
       limits:
         cpu: 100m
