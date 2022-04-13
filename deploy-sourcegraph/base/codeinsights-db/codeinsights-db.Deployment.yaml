@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    description: Code Insights Postgres DB instance.
+  labels:
+    app.kubernetes.io/component: codeinsights-db
+    deploy: sourcegraph
+    sourcegraph-resource-requires: no-cluster-admin
+  name: codeinsights-db
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: codeinsights-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        deploy: sourcegraph
+        app: codeinsights-db
+        group: backend
+    spec:
+      containers:
+      - name: codeinsights
+        image: index.docker.io/sourcegraph/codeinsights-db:insiders@sha256:96d1f482fc372f526317ea62061492e6e742f7e227dbf58243f4a424f045bb03
+        env:
+        - name: POSTGRES_DB
+          value: postgres
+        - name: POSTGRES_PASSWORD # Accessible by Sourcegraph applications on the network only, so password auth is not used.
+          value: password
+        - name: POSTGRES_USER
+          value: postgres
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        - name: POSTGRESQL_CONF_DIR
+          value: "/conf"
+        terminationMessagePolicy: FallbackToLogsOnError
+        ports:
+        - containerPort: 5432
+          name: codeinsights-db
+        resources:
+          limits:
+            cpu: "4"
+            memory: 2Gi
+          requests:
+            cpu: "4"
+            memory: 2Gi
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data/
+          name: disk
+        - mountPath: /conf
+          name: codeinsights-conf
+      terminationGracePeriodSeconds: 120
+      securityContext:
+        runAsUser: 0
+      volumes:
+      - name: disk
+        persistentVolumeClaim:
+          claimName: codeinsights-db
+      - name: codeinsights-conf
+        configMap:
+          defaultMode: 0777
+          name: codeinsights-db-conf
