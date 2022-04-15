@@ -11,5 +11,5 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
-  storageClassName: sourcegraph
+      storage: 10Gi
+  storageClassName: linode-block-storage
