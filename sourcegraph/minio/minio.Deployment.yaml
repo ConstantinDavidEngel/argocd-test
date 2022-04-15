@@ -57,7 +57,7 @@ spec:
             memory: 500M
           requests:
             cpu: "1"
-            memory: 500M
+            memory: 200M
         volumeMounts:
         - mountPath: /data
           name: minio-data

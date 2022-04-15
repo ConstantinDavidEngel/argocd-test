@@ -59,9 +59,9 @@ spec:
           timeoutSeconds: 5
         resources:
           limits:
-            cpu: "2"
+            cpu: "1"
             ephemeral-storage: "26G"
-            memory: 2G
+            memory: 1G
           requests:
             cpu: 500m
             ephemeral-storage: "25G"

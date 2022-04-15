@@ -128,9 +128,9 @@ spec:
           name: debug
         resources:
           limits:
-            cpu: "2"
+            cpu: "1"
             ephemeral-storage: "8Gi"
-            memory: 4G
+            memory: 2G
           requests:
             cpu: "2"
             ephemeral-storage: "4Gi"

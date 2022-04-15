@@ -40,8 +40,8 @@ spec:
             memory: 200Mi
             cpu: 150m
           limits:
-            memory: 2000Mi
-            cpu: 300m
+            memory: 400Mi
+            cpu: 200m
         volumeMounts:
         - name: rootfs
           mountPath: /rootfs

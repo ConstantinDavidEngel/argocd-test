@@ -60,10 +60,7 @@ spec:
           name: codeinsights-db
         resources:
           limits:
-            cpu: "4"
-            memory: 2Gi
-          requests:
-            cpu: "4"
+            cpu: "1"
             memory: 2Gi
         volumeMounts:
         - mountPath: /var/lib/postgresql/data/
