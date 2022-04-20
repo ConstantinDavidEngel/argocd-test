@@ -132,7 +132,7 @@ spec:
             ephemeral-storage: "8Gi"
             memory: 4G
           requests:
-            cpu: "2"
+            cpu: "200m"
             ephemeral-storage: "4Gi"
             memory: 2G
         volumeMounts:
