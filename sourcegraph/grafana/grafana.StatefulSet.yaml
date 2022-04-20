@@ -42,7 +42,7 @@ spec:
         # host node.
         resources:
           limits:
-            cpu: "1"
+            cpu: "200m"
             memory: 512Mi
           requests:
             cpu: 100m

@@ -70,7 +70,7 @@ spec:
           protocol: UDP
         resources:
           limits:
-            cpu: "1"
+            cpu: "200m"
             memory: 500M
           requests:
             cpu: 100m
