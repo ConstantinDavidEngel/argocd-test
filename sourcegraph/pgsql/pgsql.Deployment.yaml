@@ -36,7 +36,7 @@ spec:
           runAsUser: 0
         resources:
           limits:
-            cpu: "1"
+            cpu: "100m"
             memory: "50Mi"
           requests:
             cpu: "10m"
@@ -60,10 +60,10 @@ spec:
           name: pgsql
         resources:
           limits:
-            cpu: "2"
+            cpu: "1"
             memory: 2Gi
           requests:
-            cpu: "1"
+            cpu: "500m"
             memory: 1Gi
         volumeMounts:
         - mountPath: /data
