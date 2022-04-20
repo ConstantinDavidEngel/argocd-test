@@ -36,7 +36,7 @@ spec:
           runAsUser: 0
         resources:
           limits:
-            cpu: "10m"
+            cpu: "1"
             memory: "50Mi"
           requests:
             cpu: "10m"
