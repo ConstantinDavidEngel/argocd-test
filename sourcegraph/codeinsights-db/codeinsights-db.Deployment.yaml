@@ -24,6 +24,10 @@ spec:
         app: codeinsights-db
         group: backend
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       initContainers:
       - name: correct-data-dir-permissions
         image: index.docker.io/sourcegraph/alpine-3.12:insiders@sha256:3d926ffec4cdd54b5197bf16dded63e37b1a7045e2623ae9f8eda0a63bbf8231

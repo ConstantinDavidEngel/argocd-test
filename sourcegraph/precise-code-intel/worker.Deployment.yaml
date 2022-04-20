@@ -26,6 +26,10 @@ spec:
         deploy: sourcegraph
         app: precise-code-intel-worker
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: precise-code-intel-worker
         env:

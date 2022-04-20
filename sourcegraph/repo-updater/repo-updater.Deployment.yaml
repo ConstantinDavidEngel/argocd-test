@@ -28,6 +28,10 @@ spec:
         deploy: sourcegraph
         app: repo-updater
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: repo-updater
         image: index.docker.io/sourcegraph/repo-updater:insiders@sha256:94526c4aef85f00903e0452ddbca556b371056667f0e85875392f5f4fd81de65

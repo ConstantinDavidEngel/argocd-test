@@ -27,6 +27,10 @@ spec:
         app: github-proxy
         deploy: sourcegraph
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: github-proxy
         image: index.docker.io/sourcegraph/github-proxy:insiders@sha256:c0f705311aa2e863e5f315c98e215fb25d418082b25cfbd04efc8d19f40a300c

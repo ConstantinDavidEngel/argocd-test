@@ -24,6 +24,10 @@ spec:
         deploy: sourcegraph
         app: minio
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: minio
         env:

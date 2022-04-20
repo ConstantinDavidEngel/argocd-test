@@ -23,6 +23,10 @@ spec:
         deploy: sourcegraph
         app: redis-store
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: redis-store
         image: index.docker.io/sourcegraph/redis-store:insiders@sha256:fc49ad0f830a2cc03aadf660010f1134ef98f72bd90458c130cfcc9abee20cca

@@ -24,6 +24,10 @@ spec:
         type: gitserver
         deploy: sourcegraph
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: gitserver
         args: ["run"]

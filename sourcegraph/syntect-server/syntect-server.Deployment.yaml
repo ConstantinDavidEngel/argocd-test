@@ -26,6 +26,10 @@ spec:
         deploy: sourcegraph
         app: syntect-server
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: syntect-server
         env:

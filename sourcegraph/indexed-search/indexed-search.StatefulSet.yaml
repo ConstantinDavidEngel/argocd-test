@@ -21,6 +21,10 @@ spec:
         app: indexed-search
         deploy: sourcegraph
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: zoekt-webserver
         image: index.docker.io/sourcegraph/indexed-searcher:insiders@sha256:3c6d2f5de73b3cfda8f4a3b4e1e5e7f2637b5330a439e4179392768af203bcde

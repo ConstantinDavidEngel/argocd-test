@@ -27,6 +27,10 @@ spec:
         app: sourcegraph-frontend
         deploy: sourcegraph
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       initContainers:
       - name: migrator
         image: index.docker.io/sourcegraph/migrator:insiders@sha256:41dd9090988e3282ddb204af8e2afd5d8e7f1a937fabe0c2dfdc5466f98518f5

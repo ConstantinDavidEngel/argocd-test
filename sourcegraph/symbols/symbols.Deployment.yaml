@@ -27,6 +27,10 @@ spec:
         deploy: sourcegraph
         app: symbols
     spec:
+      tolerations:
+        - effect: NoExecute
+          key: nine.ch/workload-type
+          value: sourcegraph
       containers:
       - name: symbols
         env:
