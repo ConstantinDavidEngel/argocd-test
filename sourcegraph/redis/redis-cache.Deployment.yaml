@@ -41,10 +41,10 @@ spec:
             port: redis
         resources:
           limits:
-            cpu: "1"
-            memory: 3Gi
+            cpu: "500m"
+            memory: 2Gi
           requests:
-            cpu: "1"
+            cpu: "10m"
             memory: 1Gi
         volumeMounts:
         - mountPath: /redis-data
