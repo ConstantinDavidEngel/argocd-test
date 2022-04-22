@@ -27,6 +27,14 @@ spec:
         app: sourcegraph-frontend
         deploy: sourcegraph
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: nine.ch/workload-type
+                operator: In
+                values: sourcegraph
       tolerations:
         - effect: NoExecute
           key: nine.ch/workload-type

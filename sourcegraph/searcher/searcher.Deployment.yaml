@@ -27,6 +27,14 @@ spec:
         deploy: sourcegraph
         app: searcher
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: nine.ch/workload-type
+                operator: In
+                values: sourcegraph
       tolerations:
         - effect: NoExecute
           key: nine.ch/workload-type
