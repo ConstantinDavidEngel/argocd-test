@@ -26,9 +26,9 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: nine.ch/workload-type
+              - key: node_pool
                 operator: In
-                values: sourcegraph
+                values: [sourcegraph]
       tolerations:
         - effect: NoExecute
           key: nine.ch/workload-type
